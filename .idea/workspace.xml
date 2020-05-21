@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4f28d043-bef0-4dac-8173-7898dad6d7e2" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\sagan\Documents\Projects\unknown_diff\2CP\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1bsF7GIDRZeAm9Qwob8WNjJXuPx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sagan\Documents\Projects\unknown_diff\2CP\public" />
+      <recent name="C:\Users\sagan\Documents\Projects\unknown_diff\2CP\bin" />
+      <recent name="C:\Users\sagan\Documents\Projects\unknown_diff\2CP" />
+      <recent name="C:\Users\sagan\Documents\Projects\unknown_diff\2CP\data\db" />
+      <recent name="C:\Users\sagan\Documents\Projects\unknown_diff\2CP\data" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4f28d043-bef0-4dac-8173-7898dad6d7e2" name="Default Changelist" comment="" />
+      <created>1589412724559</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589412724559</updated>
+      <workItem from="1589412725800" duration="2463000" />
+      <workItem from="1589487343351" duration="4733000" />
+      <workItem from="1589762152190" duration="4832000" />
+      <workItem from="1589845620831" duration="5503000" />
+      <workItem from="1589931362746" duration="6305000" />
+      <workItem from="1589942477660" duration="600000" />
+      <workItem from="1589945909856" duration="61000" />
+      <workItem from="1589945971691" duration="43000" />
+      <workItem from="1589946024275" duration="7002000" />
+      <workItem from="1589992470566" duration="6043000" />
+      <workItem from="1590016047967" duration="13541000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

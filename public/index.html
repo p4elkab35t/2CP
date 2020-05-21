@@ -1,0 +1,68 @@
+<html>
+
+  <head>
+    <title>buldiga</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $.get('/t1', (data)=>{
+        if(data==='1'){
+          window.location.replace('/ylist');
+        }
+      });
+    </script>
+  </head>
+
+  <body>
+    <form action="/signup" id="signupForm">
+      <input type="text" id="login">
+      <input type="text" id="password">
+      <input type="submit" id="submit">
+    </form>
+    <form action="/signin" id="secForm">
+      <input type="text" id="log">
+      <input type="text" id="pass">
+      <input type="submit" id="sigin">
+    </form>
+    <script>
+      $( "#signupForm" ).submit(function( event ) {
+        event.preventDefault();
+        if(!$('#login').val() | !$('#password').val()){
+          console.log('fail');
+          return null;
+        }
+        // Stop form from submitting normally
+
+
+        // Get some values from elements on the page:
+        let userData = {
+          login: $('#login').val(),
+          pass : $('#password').val()
+        };
+        // Send the data using post
+        $.post( '/signup', { login: userData.login, password: userData.pass}, (data)=>{console.log(data)});
+      });
+      $( "#secForm" ).submit(function( event ) {
+        event.preventDefault();
+        if(!$('#log').val() | !$('#pass').val()){
+          console.log('fail');
+          return null;
+        }
+        // Stop form from submitting normally
+
+
+        // Get some values from elements on the page:
+        let userData = {
+          login: $('#log').val(),
+          pass : $('#pass').val()
+        };
+        // Send the data using post
+        $.post( '/signin', { login: userData.login, password: userData.pass}, (data)=>{
+          console.log(data);
+          data==='1'?window.location.replace('/ylist'):alert('login failed')
+        });
+      });
+    </script>
+  </body>
+</html>

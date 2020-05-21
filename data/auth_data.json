@@ -1,0 +1,26 @@
+{
+ "idMax": 2,
+ "data": [
+  {
+   "userId": "0",
+   "userName": "null",
+   "userPass": "null,",
+   "userType": "4",
+   "userSession": null
+  },
+  {
+   "userId": "1",
+   "userName": "dumbFucker142",
+   "userPass": "12300000",
+   "userType": "1",
+   "userSession": null
+  },
+  {
+   "userId": 2,
+   "userName": "1",
+   "userPass": "1",
+   "userType": 1,
+   "userSession": "8cd6c2b669d33d499ab2a10dcca928d2"
+  }
+ ]
+}
