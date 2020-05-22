@@ -5,6 +5,16 @@
     <title>Title</title>
 </head>
 <body>
-    buldiga 1 2 3
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $.get('/t1', (data)=>{
+        if(data==='2'){
+            window.location.replace('/');
+        }
+    });
+    $.get('/ylist/read', (data)=>{
+        console.log(data);
+    });
+</script>
 </body>
 </html>

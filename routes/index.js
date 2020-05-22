@@ -12,6 +12,9 @@ router.get('/t1', function(req, res, next) {
   if(req.cookies['auth0']){
     res.send('1');
   }
+  else{
+    res.send('2');
+  }
 });
 
 router.post('/signup',urlencodedParser, (req,res,next)=>{

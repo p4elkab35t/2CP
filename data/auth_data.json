@@ -1,10 +1,10 @@
 {
- "idMax": 2,
+ "idMax": 3,
  "data": [
   {
    "userId": "0",
    "userName": "null",
-   "userPass": "null,",
+   "userPass": "null",
    "userType": "4",
    "userSession": null
   },
@@ -20,7 +20,14 @@
    "userName": "1",
    "userPass": "1",
    "userType": 1,
-   "userSession": "8cd6c2b669d33d499ab2a10dcca928d2"
+   "userSession": "013c62d3566bbceb4d009b19a1e8ac77"
+  },
+  {
+   "userId": 3,
+   "userName": "12",
+   "userPass": "12",
+   "userType": 1,
+   "userSession": "0b6561d6f609b89028cfeec6c2a9fea9"
   }
  ]
 }

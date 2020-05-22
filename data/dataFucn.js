@@ -8,6 +8,19 @@ var user = function(id,login,pass){
   this.userSession  = null;
 };
 
+var task = function (id,taskText,taskFlags,taskDate,taskDeadline) {
+    this.taskId = id;
+    this.taskText = taskText;
+    this.taskFlags = taskFlags;
+    this.taskDate = taskDate;
+    this.taskDeadline = taskDeadline;
+};
+
+var newFile = function(){
+    this.idMax = 1;
+    this.tasks = [new task(1, 'example', [0,0,0], null, null)];
+};
+
 var a = function(usName){
     let authData    = JSON.parse(fs.readFileSync('data/auth_data.json'));
     for(let i = 0; i <= authData.idMax; i++){
@@ -24,6 +37,7 @@ var b    = function(usName,usPass){
     authData.data[id] = newUser;
     authData.idMax = id;
     fs.writeFileSync('data/auth_data.json', JSON.stringify(authData, null, ' '));
+    fs.writeFileSync(`data/${id}.json`, JSON.stringify(new newFile(), null, ' '));
 };
 var c = function(usName, session){
     let authData    = JSON.parse(fs.readFileSync('data/auth_data.json'));
@@ -31,8 +45,44 @@ var c = function(usName, session){
     fs.writeFileSync('data/auth_data.json', JSON.stringify(authData, null, ' '));
 };
 
+var d = function(pie){
+    let authData    = JSON.parse(fs.readFileSync('data/auth_data.json'));
+    for(let i = 0; i <= authData.idMax; i++){
+        if(pie == authData.data[i].userSession){
+            return {userName:authData.data[i].userName,userId:authData.data[i].userId};
+        }
+    }
+    return null;
+};
+var e = function(userId){
+    let tasksData = JSON.parse(fs.readFileSync(`data/${userId}.json`));
+    return tasksData;
+};
+var f = function(userId, taskText, taskFlags, taskDate, taskDeadline){
+    let tasksData = JSON.parse(fs.readFileSync(`data/${userId}.json`));
+    tasksData.idMax++;
+    tasksData.tasks[tasksData.idMax] = new task(tasksData.idMax, taskText, taskFlags, taskDate, taskDeadline);
+    fs.writeFileSync(`data/${userId}.json`, JSON.stringify(tasksData, null, ' '));
+};
+var g = function(taskId, userId){
+    let tasksData = JSON.parse(fs.readFileSync(`data/${userId}.json`));
+    delete tasksData.tasks[taskId];
+    fs.writeFileSync(`data/${userId}.json`, JSON.stringify(tasksData, null, ' '));
+};
+var h = function(userId, taskId, taskText, taskFlags, taskDeadline){
+    let tasksData = JSON.parse(fs.readFileSync(`data/${userId}.json`));
+    tasksData.tasks[taskId].taskText = taskText;
+    tasksData.tasks[taskId].taskFlags = taskFlags;
+    tasksData.tasks[taskId].taskDeadline = taskDeadline;
+    fs.writeFileSync(`data/${userId}.json`, JSON.stringify(tasksData, null, ' '));
+};
 module.exports = {
     findByName: a,
     addUser: b,
-    sessionAdd: c
+    sessionAdd: c,
+    searchForCookie: d,
+    getTasksData: e,
+    addTask: f,
+    deleteTask: g,
+    editTask: h
 };

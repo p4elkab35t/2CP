@@ -14,4 +14,29 @@ router.get('/', function(req, res, next) {
     }
 });
 
+router.get('/read', function (req, res) {
+    let userName = dataFunc.searchForCookie(req.cookies['auth0']);
+    if(userName){
+        res.send(dataFunc.getTasksData(userName.userId));
+    };
+});
+router.post('/create', function (req, res) {
+    let userName = dataFunc.searchForCookie(req.cookies['auth0']);
+    if(userName){
+        dataFunc.addTask(userName.userId, req.body.taskText, req.body.taskFlags, new Date().toString(), req.body.taskDeadline);
+    };
+});
+router.post('/delete', function (req, res) {
+    let userName = dataFunc.searchForCookie(req.cookies['auth0']);
+    if(userName){
+        dataFunc.deleteTask(req.body.taskId,userName.userId);
+    };
+});
+router.post('/update', function (req, res) {
+    let userName = dataFunc.searchForCookie(req.cookies['auth0']);
+    if(userName){
+        dataFunc.editTask(userName.userId, req.body.taskId, req.body.taskText, req.body.taskFlags, req.body.taskDeadline);
+    };
+});
+
 module.exports = router;
