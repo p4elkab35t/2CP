@@ -1,5 +1,5 @@
 {
- "idMax": 3,
+ "idMax": 4,
  "data": [
   {
    "userId": "0",
@@ -20,7 +20,7 @@
    "userName": "1",
    "userPass": "1",
    "userType": 1,
-   "userSession": "013c62d3566bbceb4d009b19a1e8ac77"
+   "userSession": "35681dc7c61cbd70b9021dbfee9749f2"
   },
   {
    "userId": 3,
@@ -28,6 +28,11 @@
    "userPass": "12",
    "userType": 1,
    "userSession": "0b6561d6f609b89028cfeec6c2a9fea9"
+  },
+  {
+   "userId": 4,
+   "userType": 1,
+   "userSession": null
   }
  ]
 }

@@ -1,0 +1,16 @@
+{
+ "idMax": 1,
+ "tasks": [
+  {
+   "taskId": 1,
+   "taskText": "example",
+   "taskFlags": [
+    0,
+    0,
+    0
+   ],
+   "taskDate": null,
+   "taskDeadline": null
+  }
+ ]
+}

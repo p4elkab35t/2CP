@@ -63,6 +63,7 @@ var f = function(userId, taskText, taskFlags, taskDate, taskDeadline){
     tasksData.idMax++;
     tasksData.tasks[tasksData.idMax] = new task(tasksData.idMax, taskText, taskFlags, taskDate, taskDeadline);
     fs.writeFileSync(`data/${userId}.json`, JSON.stringify(tasksData, null, ' '));
+    return tasksData.idMax;
 };
 var g = function(taskId, userId){
     let tasksData = JSON.parse(fs.readFileSync(`data/${userId}.json`));

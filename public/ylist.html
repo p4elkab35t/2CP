@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
 <body>
+<form action="/ylist/create" id="newTaskForm">
+    <input type="text" id="newTaskText">
+    <input type="submit" id="submit">
+</form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $.get('/t1', (data)=>{
@@ -13,8 +18,55 @@
         }
     });
     $.get('/ylist/read', (data)=>{
-        console.log(data);
+        var linesNums = data.idMax;
+        for(let i=0;i<=linesNums;i++){
+            parseNewTab(i, data.tasks[i]);
+        }
     });
+    $( "#newTaskForm" ).submit(function( event ) {
+        event.preventDefault();
+        if(!$('#newTaskText').val()){
+            console.log('fail');
+            return null;
+        }
+        // Stop form from submitting normally
+
+
+        // Get some values from elements on the page:
+        var taskData = {
+            taskText: $('#newTaskText').val(),
+            taskFlags : [0,0,0],
+            taskDeadline: null
+        };
+        // Send the data using post
+        $.post( '/ylist/create', { taskText: taskData.taskText, taskFlags: taskData.taskFlags, taskDeadline: taskData.taskDeadline}, (data)=>{
+            if(data){
+                console.log(data);
+                parseNewTab(data, {taskText: taskData.taskText, taskId: data});
+            }
+            else{
+                console.log('typingErr');
+            }
+        });
+    });
+    function parseNewTab(lineNum, lineData){
+        if(lineNum==0){$('body').append(`
+            <div id="task_${lineNum}" class="taskEntity">
+              <div class="taskPart taskId">${lineData.taskId}</div>
+              <div class="taskPart taskText">| ${lineData.taskText} |</div>
+              <div class="taskPart taskBut"><input type="button" value="X"> |</div>
+              <div class="taskPart taskBut"><input type="button" value="edit"></div>
+            </div>`)}
+        else{
+            $(`#task_${lineNum-1}`).after(`
+            <div id="task_${lineNum}" class="taskEntity">
+              <div class="taskPart taskId">${lineData.taskId}</div>
+              <div class="taskPart taskText">| ${lineData.taskText} |</div>
+              <div class="taskPart taskBut"><input type="button" value="X"> |</div>
+              <div class="taskPart taskBut"><input type="button" value="edit"></div>
+            </div>`)
+        }
+    };
 </script>
 </body>
 </html>
