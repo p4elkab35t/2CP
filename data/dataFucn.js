@@ -17,8 +17,8 @@ var task = function (id,taskText,taskFlags,taskDate,taskDeadline) {
 };
 
 var newFile = function(){
-    this.idMax = 1;
-    this.tasks = [new task(1, 'example', [0,0,0], null, null)];
+    this.idMax = 0;
+    this.tasks = [new task(0, 'example', [0,0,0])];
 };
 
 var a = function(usName){
