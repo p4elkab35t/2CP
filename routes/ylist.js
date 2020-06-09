@@ -19,9 +19,7 @@ router.get('/logout', (req, res)=>{
     let userName = dataFunc.searchForCookie(req.cookies['auth0']);
     if(userName){
         res.cookie('auth0', 0,{httpOnly: true});
-        if(dataFunc.sessionDelete(userName.userName)==1){
-            res.send('1');
-        }
+        res.send(dataFunc.sessionDelete(userName.userName));
     }
 });
 router.get('/read', function (req, res) {
