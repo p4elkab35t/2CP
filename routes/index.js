@@ -9,7 +9,7 @@ const express       = require('express'),
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 /* GET home page. */
 router.get('/t1', function(req, res, next) {
-  if(req.cookies['auth0']){
+  if(dataFunc.searchForCookie(req.cookies['auth0'])){
     res.send('1');
   }
   else{
