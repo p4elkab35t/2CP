@@ -6,14 +6,24 @@ const express       = require('express'),
       path          = require('path');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    if(req.cookies['auth0']){
+    if(dataFunc.searchForCookie(req.cookies['auth0'])){
         res.sendFile(path.resolve('public/ylist.html'));
     }
     else{
         res.redirect('/');
     }
 });
-
+router.get('/logout', (req, res)=>{
+    console.log(req.cookies['auth0']);
+    console.log(dataFunc.searchForCookie(req.cookies['auth0']));
+    let userName = dataFunc.searchForCookie(req.cookies['auth0']);
+    if(userName){
+        res.cookie('auth0', 0,{httpOnly: true});
+        if(dataFunc.sessionDelete(userName.userName)==1){
+            res.send('1');
+        }
+    }
+});
 router.get('/read', function (req, res) {
     let userName = dataFunc.searchForCookie(req.cookies['auth0']);
     if(userName){

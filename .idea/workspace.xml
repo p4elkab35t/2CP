@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4f28d043-bef0-4dac-8173-7898dad6d7e2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/2.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/2.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/auth_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/auth_data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/dataFucn.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/dataFucn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/ylist.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/ylist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/ylist.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/ylist.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,7 +88,9 @@
       <workItem from="1589992470566" duration="6043000" />
       <workItem from="1590016047967" duration="13541000" />
       <workItem from="1590105477910" duration="7341000" />
-      <workItem from="1591185975993" duration="7904000" />
+      <workItem from="1591185975993" duration="10177000" />
+      <workItem from="1591700564573" duration="1261000" />
+      <workItem from="1591707354230" duration="1081000" />
     </task>
     <servers />
   </component>

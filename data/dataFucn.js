@@ -77,6 +77,12 @@ var h = function(userId, taskId, taskText, taskFlags, taskDeadline){
     tasksData.tasks[taskId].taskDeadline = taskDeadline;
     fs.writeFileSync(`data/${userId}.json`, JSON.stringify(tasksData, null, ' '));
 };
+var k = function(usName){
+    let authData    = JSON.parse(fs.readFileSync('data/auth_data.json'));
+    authData.data[a(usName).userId].userSession = null;
+    fs.writeFileSync('data/auth_data.json', JSON.stringify(authData, null, ' '));
+    return 1;
+};
 module.exports = {
     findByName: a,
     addUser: b,
@@ -85,5 +91,6 @@ module.exports = {
     getTasksData: e,
     addTask: f,
     deleteTask: g,
-    editTask: h
+    editTask: h,
+    sessionDelete: k
 };
