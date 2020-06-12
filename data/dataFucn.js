@@ -61,14 +61,23 @@ var e = function(userId){
 var f = function(userId, taskText, taskFlags, taskDate, taskDeadline){
     let tasksData = JSON.parse(fs.readFileSync(`data/${userId}.json`));
     tasksData.idMax++;
-    tasksData.tasks[tasksData.idMax] = new task(tasksData.idMax, taskText, taskFlags, taskDate, taskDeadline);
+    tasksData.tasks.push(new task(tasksData.idMax, taskText, taskFlags, taskDate, taskDeadline));
     fs.writeFileSync(`data/${userId}.json`, JSON.stringify(tasksData, null, ' '));
-    return tasksData.idMax;
+    return tasksData.tasks.length-1;
 };
 var g = function(taskId, userId){
+    console.log(`начато выполнение запроса на удаление задания №${taskId}`);
     let tasksData = JSON.parse(fs.readFileSync(`data/${userId}.json`));
-    delete tasksData.tasks[taskId];
+    var taskDelId;
+    for(i=0; i<tasksData.tasks.length; i++){
+        if(tasksData.tasks[i].taskId==taskId){
+           taskDelId = i;
+        }
+    }
+    tasksData.tasks.splice(taskDelId, 1);
     fs.writeFileSync(`data/${userId}.json`, JSON.stringify(tasksData, null, ' '));
+    console.log(`задание №${taskId} успешно удалено`);
+    return taskId
 };
 var h = function(userId, taskId, taskText, taskFlags, taskDeadline){
     let tasksData = JSON.parse(fs.readFileSync(`data/${userId}.json`));
@@ -76,6 +85,7 @@ var h = function(userId, taskId, taskText, taskFlags, taskDeadline){
     tasksData.tasks[taskId].taskFlags = taskFlags;
     tasksData.tasks[taskId].taskDeadline = taskDeadline;
     fs.writeFileSync(`data/${userId}.json`, JSON.stringify(tasksData, null, ' '));
+    return {taskText:taskText, taskId:taskId};
 };
 var k = function(usName){
     let authData    = JSON.parse(fs.readFileSync('data/auth_data.json'));
