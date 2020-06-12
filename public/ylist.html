@@ -62,6 +62,7 @@
             }
         });
     });
+
     function delTask(num) {
         $.post( '/ylist/delete', {taskId:num}, (data)=>{
             if(data){
@@ -81,10 +82,12 @@
     }
     function updateLineNums(){
         $('#taskContainer').children().each( (idx ,item) =>{
+
             item.id = `line_${idx}`;
             $(item).children('.taskId').replaceWith(`<div class="taskPart taskId">${idx}</div>`);
             $(item).children('.taskBut').children('.editBut').attr('onclick', `editTask(${idx})`);
             console.log($(item));
+
         });
     }
     function submitEdit(val){

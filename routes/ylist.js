@@ -14,15 +14,18 @@ router.get('/', function(req, res, next) {
     }
 });
 
+
 router.get('/logout', (req, res)=>{
     console.log(req.cookies['auth0']);
     console.log(dataFunc.searchForCookie(req.cookies['auth0']));
     let userName = dataFunc.searchForCookie(req.cookies['auth0']);
     if(userName){
         res.cookie('auth0', 0,{httpOnly: true});
+
         res.send(`${dataFunc.sessionDelete(userName.userName)}`);
     }
 });
+
 
 router.get('/read', function (req, res) {
     let userName = dataFunc.searchForCookie(req.cookies['auth0']);
@@ -48,7 +51,7 @@ router.post('/delete', function (req, res) {
 router.post('/update', function (req, res) {
     let userName = dataFunc.searchForCookie(req.cookies['auth0']);
     if(userName){
-        res.send(dataFunc.editTask(userName.userId, req.body.taskId, req.body.taskText, req.body.taskFlags, req.body.taskDeadline));
+        res.send(dataFunc.editTask(userName.userId, req.body.taskId, req.body.taskText, req.body.taskFlags, req.body.taskDeadline));\\\\\\\
     }
 });
 
