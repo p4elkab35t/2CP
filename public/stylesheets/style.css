@@ -10,3 +10,8 @@ a {
 .taskPart{
   display: inline-block;
 }
+#greet{
+  text-align: center;
+  font-family: "Arial Black";
+  font-size: 19px;
+}
