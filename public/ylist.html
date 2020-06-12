@@ -6,23 +6,36 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
 <body>
+<input  type="button" value="Log-out" onclick="logout()">
 <form action="/ylist/create" id="newTaskForm">
     <input type="text" id="newTaskText">
     <input type="submit" id="submit">
 </form>
+<div id="taskContainer"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+    function logout(){
+        $.get('/ylist/logout', (data)=>{
+            if(data == 1){
+                window.location.replace('/');
+            }
+        })
+    }
     $.get('/t1', (data)=>{
         if(data==='2'){
             window.location.replace('/');
         }
     });
-    $.get('/ylist/read', (data)=>{
-        var linesNums = data.idMax;
-        for(let i=0;i<=linesNums;i++){
-            parseNewTab(i, data.tasks[i]);
-        }
-    });
+    function readAllTasks(){
+        $.get('/ylist/read', (data) => {
+            $('head').after(`<p id="greet">Hello ${data.user.userName}</p>`);
+            var linesNums = data.data.tasks.length;
+            for (let i = 0; i < linesNums; i++) {
+                parseNewTab(i, data.data.tasks[i]);
+            }
+        });
+    }
+    readAllTasks();
     $( "#newTaskForm" ).submit(function( event ) {
         event.preventDefault();
         if(!$('#newTaskText').val()){
@@ -41,7 +54,7 @@
         // Send the data using post
         $.post( '/ylist/create', { taskText: taskData.taskText, taskFlags: taskData.taskFlags, taskDeadline: taskData.taskDeadline}, (data)=>{
             if(data){
-                console.log(data);
+                console.log(data, {taskText: taskData.taskText, taskId: data});
                 parseNewTab(data, {taskText: taskData.taskText, taskId: data});
             }
             else{
@@ -69,10 +82,14 @@
     }
     function updateLineNums(){
         $('#taskContainer').children().each( (idx ,item) =>{
+
             item.id = `line_${idx}`;
             $(item).children('.taskId').replaceWith(`<div class="taskPart taskId">${idx}</div>`);
             $(item).children('.taskBut').children('.editBut').attr('onclick', `editTask(${idx})`);
             console.log($(item));
+
+            console.log(this)
+
         });
     }
     function submitEdit(val){
@@ -95,20 +112,20 @@
         });
     }
     function parseNewTab(lineNum, lineData){
-        if(lineNum==0){$('body').append(`
-            <div id="task_${lineNum}" class="taskEntity">
-              <div class="taskPart taskId">${lineData.taskId}</div>
+        if(lineNum==0){$('#taskContainer').append(`
+            <div id="line_${lineNum}" class="taskEntity task_${lineData.taskId}">
+              <div class="taskPart taskId">${lineNum}</div>
               <div class="taskPart taskText">| ${lineData.taskText} |</div>
-              <div class="taskPart taskBut"><input type="button" value="X"> |</div>
-              <div class="taskPart taskBut"><input type="button" value="edit"></div>
+              <div class="taskPart taskBut"><input type="button" value="X" onclick="delTask(${lineData.taskId})"> |</div>
+              <div class="taskPart taskBut"><input type="button" class="editBut" value="edit" onclick="editTask(${lineNum})"></div>
             </div>`)}
         else{
-            $(`#task_${lineNum-1}`).after(`
-            <div id="task_${lineNum}" class="taskEntity">
-              <div class="taskPart taskId">${lineData.taskId}</div>
+            $(`#line_${lineNum-1}`).after(`
+            <div id="line_${lineNum}" class="taskEntity task_${lineData.taskId}">
+              <div class="taskPart taskId">${lineNum}</div>
               <div class="taskPart taskText">| ${lineData.taskText} |</div>
-              <div class="taskPart taskBut"><input type="button" value="X"> |</div>
-              <div class="taskPart taskBut"><input type="button" value="edit"></div>
+              <div class="taskPart taskBut"><input type="button" value="X" onclick="delTask(${lineData.taskId})"> |</div>
+              <div class="taskPart taskBut"><input type="button" value="edit" class="editBut" onclick="editTask(${lineNum})"></div>
             </div>`)
         }
     };
