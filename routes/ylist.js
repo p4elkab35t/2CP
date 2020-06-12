@@ -14,6 +14,7 @@ router.get('/', function(req, res, next) {
     }
 });
 
+
 router.get('/logout', (req, res)=>{
     console.log(req.cookies['auth0']);
     console.log(dataFunc.searchForCookie(req.cookies['auth0']));
@@ -26,9 +27,6 @@ router.get('/logout', (req, res)=>{
 });
 
 
-        res.send(dataFunc.sessionDelete(userName.userName));
-    }
-});
 
 router.get('/read', function (req, res) {
     let userName = dataFunc.searchForCookie(req.cookies['auth0']);
