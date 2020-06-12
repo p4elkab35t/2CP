@@ -49,6 +49,51 @@
             }
         });
     });
+
+    function delTask(num) {
+        $.post( '/ylist/delete', {taskId:num}, (data)=>{
+            if(data){
+                console.log(data);
+                $(`.task_${data}`).remove();
+                updateLineNums();
+            }
+            else{
+                console.log('deleteErr');
+            }
+        });
+    }
+    function editTask(num) {
+        let textArea = $(`#line_${num}`);
+        textArea.children('.taskText').replaceWith(`<input class="taskPart taskTextEdit" id="editTask_${num}" value="${textArea.children('.taskText').text()}">`)
+        textArea.children('.taskBut').children('.editBut').replaceWith(`<input type="button" class="editBut" value="ok" onclick="submitEdit(${num})">`)
+    }
+    function updateLineNums(){
+        $('#taskContainer').children().each( (idx ,item) =>{
+            item.id = `line_${idx}`;
+            $(item).children('.taskId').replaceWith(`<div class="taskPart taskId">${idx}</div>`);
+            $(item).children('.taskBut').children('.editBut').attr('onclick', `editTask(${idx})`);
+            console.log($(item));
+        });
+    }
+    function submitEdit(val){
+        let editData = {
+            taskId: val,
+            taskText: $(`#editTask_${val}`).val(),
+            taskFlags: [0,0,0],
+            taskDeadline: null
+        };
+        $.post( '/ylist/update', editData, (data)=>{
+            if(data){
+                console.log(data);
+                let textArea =  $(`#line_${data.taskId}`);
+                textArea.children('.taskTextEdit').replaceWith(`<div class="taskPart taskText">| ${data.taskText} |</div>`)
+                textArea.children('.taskBut').children('.editBut').replaceWith(`<input type="button" class="editBut" value="edit" onclick="editTask(${data.taskId})">`)
+            }
+            else{
+                console.log('updateErr');
+            }
+        });
+    }
     function parseNewTab(lineNum, lineData){
         if(lineNum==0){$('body').append(`
             <div id="task_${lineNum}" class="taskEntity">
