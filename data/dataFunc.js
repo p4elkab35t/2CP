@@ -46,9 +46,10 @@ var c = function(usName, session){
 };
 
 var d = function(pie){
+    console.log(pie);
     let authData    = JSON.parse(fs.readFileSync('data/auth_data.json'));
     for(let i = 0; i <= authData.idMax; i++){
-        if(pie == authData.data[i].userSession){
+        if(pie === authData.data[i].userSession){
             return {userName:authData.data[i].userName,userId:authData.data[i].userId};
         }
     }

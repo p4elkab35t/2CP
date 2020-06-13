@@ -1,6 +1,6 @@
 const express       = require('express'),
       session       = require('express-session'),
-      dataFunc      = require('../data/dataFucn'),
+      dataFunc      = require('../data/dataFunc'),
       bodyParser    = require('body-parser'),
       router        = express.Router(),
       path          = require('path');

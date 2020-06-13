@@ -1,8 +1,13 @@
 body {
-  padding: 50px;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  background-color: #ff9f43;
 
+}
+header{
+  position: relative;
+  z-index: 2;
+}
 a {
   color: #00B7FF;
 }
@@ -14,4 +19,177 @@ a {
   text-align: center;
   font-family: "Arial Black";
   font-size: 19px;
+  margin-top:0px;
+}
+div{
+  transition: all 0.3s ease;
+}
+/*
+#secForm{
+  height:0;
+  overflow:hidden;
+}*/
+.back{
+  transform: rotateY(0deg);
+}
+.front{
+  transform: rotateY(180deg);
+
+}
+.formDiv{
+  position: relative;
+}
+header{
+  z-index:99;
+}
+p{
+  font-family: "Arial Black";
+  font-size: 20px;
+  margin-top: 15px;
+  padding: 10px 0;
+  color:#576574;
+  width: 100%;
+  background-color: #c8d6e5;
+  z-index: 2;
+}
+#mainForm{
+  position: relative;
+  margin: 200px auto;
+  /*border:2px solid #10ac84;*/
+  animation: showup 0.5s linear;
+  background-color: #feca57;
+  width:200px;
+  text-align: center;
+  height: 200px;
+}
+
+.shown{
+  opacity: 1;
+  display: block;
+}
+.hidden{
+  opacity: 0;
+  display: none;
+}
+.first{
+  margin-top:0px;
+  transform: rotateY(180deg);
+}
+.second{
+  margin-top:0px;
+}
+input{
+  border:none;
+  transition: all 0.2s ease;
+  background-color: transparent;
+}
+input[type=text], input[type=password]{
+  border-bottom:1px solid #222f3e;
+  font-size: 16px;
+  height:25px;
+  margin-top: 10px;
+  width: 180px;
+}
+input[type=password]:focus, input[type=text]:focus{
+  border-bottom:1px solid #576574;
+}
+input[type=submit]{
+  height: 25px;
+  background-color: #ff6b6b;
+  width:120px;
+}
+input[type=submit]:hover{
+  height: 25px;
+  background-color: #ee5253;
+}
+input:focus{
+  outline: none;
+}
+#login, #log{
+  margin-top:-7px;
+}
+button{
+  height: 30px;
+  width:100%;
+  border:none;
+}
+
+button:hover{
+  background:#c8d6e5;
+}
+button:focus{
+  outline: none;
+}
+.formElement{
+  margin-top: 12px;
+}
+
+@keyframes showup {
+  0%{
+    margin-top: -300px;
+  }
+  95%{
+    margin-top: 200px;
+  }
+  100%{
+    margin-top: 150px;
+  }
+}
+#main{
+  position:relative;
+  width: 308px;
+  margin:-30px auto;
+
+}
+.taskPart{
+  border-right:1px solid black;
+  border-bottom:1px solid black ;
+}
+.taskId{
+  border-left:1px solid black;
+}
+#newTaskForm{
+  width:308px;
+  border-bottom: 1px solid #222f3e;
+  border-left:1px solid #222f3e;
+  height:37px;
+}
+#newTaskText{
+  border-bottom: none;
+}
+#loBut{
+
+  width: 100%;
+  height:50px;
+  background:#8395a7;
+}
+#loBut:hover{
+  background:#576574;
+}
+#taskContainer{
+
+  display: grid;
+}
+.taskEntity{
+  height:30px;
+  line-height: 200%;
+  display: grid;
+  grid-template-columns: 20px 187px 50px 50px;
+}
+.taskBut{
+  background-color: #ff6b6b;
+  text-align: center;
+}
+.taskBut:hover{
+  background-color: #ee5253;
+
+}
+.taskTextEdit{
+  background-color: #feca57;
+}
+#submit{
+  width:100px;
+  position: relative;
+  margin-left:19px;
+  margin-bottom: 0px;
 }
