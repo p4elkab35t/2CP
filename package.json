@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "devStart": "node ./test/test.server.js",
+    "unit-tests": "mocha ./test/*.test.js",
+    "test": "start-server-and-test devStart http://localhost:5375 unit-tests"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -16,5 +19,11 @@
     "morgan": "~1.9.1",
     "path": "^0.12.7",
     "redis": "^3.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.0.1",
+    "start-server-and-test": "^1.11.0"
   }
 }

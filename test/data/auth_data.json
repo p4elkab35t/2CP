@@ -1,0 +1,12 @@
+{
+ "idMax": 0,
+ "data": [
+  {
+   "userId": 0,
+   "userName": "test",
+   "userPass": "test",
+   "userType": 1,
+   "userSession": "111"
+  }
+ ]
+}

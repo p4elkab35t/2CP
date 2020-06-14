@@ -2,7 +2,7 @@ const express       = require('express'),
       router        = express.Router(),
       fs            = require('fs'),
       cookieParser  = require('cookie-parser'),
-      dataFunc      = require('../data/dataFucn'),
+      dataFunc      = require('../data/dataFunc'),
       crypto        = require('crypto'),
       bodyParser    = require('body-parser');
 
@@ -10,7 +10,6 @@ const urlencodedParser = bodyParser.urlencoded({extended: false});
 /* GET home page. */
 router.get('/t1', function(req, res, next) {
   if(dataFunc.searchForCookie(req.cookies['auth0'])){
-    console.log((req.cookies['auth0']));
     res.send('1');
   }
   else{

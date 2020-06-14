@@ -1,7 +1,7 @@
 const express       = require('express'),
       session       = require('express-session'),
-      dataFunc      = require('../data/dataFucn'),
-      bodyParser    = require('body-parser');
+      dataFunc      = require('../data/dataFunc'),
+      bodyParser    = require('body-parser'),
       router        = express.Router(),
       path          = require('path');
 /* GET home page. */
@@ -29,7 +29,8 @@ router.get('/logout', (req, res)=>{
 router.get('/read', function (req, res) {
     let userName = dataFunc.searchForCookie(req.cookies['auth0']);
     if(userName){
-        res.send(dataFunc.getTasksData(userName.userId));
+        console.log({data: dataFunc.getTasksData(userName.userId), user: userName});
+        res.send({data: dataFunc.getTasksData(userName.userId), user: userName});
     }
 });
 router.post('/create', function (req, res) {
@@ -41,13 +42,15 @@ router.post('/create', function (req, res) {
 router.post('/delete', function (req, res) {
     let userName = dataFunc.searchForCookie(req.cookies['auth0']);
     if(userName){
-        dataFunc.deleteTask(req.body.taskId,userName.userId);
+        console.log(`принят запрос на удаление задания №${req.body.taskId}`)
+        res.send(dataFunc.deleteTask(req.body.taskId,userName.userId));
+        console.log('data deletion complete')
     }
 });
 router.post('/update', function (req, res) {
     let userName = dataFunc.searchForCookie(req.cookies['auth0']);
     if(userName){
-        dataFunc.editTask(userName.userId, req.body.taskId, req.body.taskText, req.body.taskFlags, req.body.taskDeadline);
+        res.send(dataFunc.editTask(userName.userId, req.body.taskId, req.body.taskText, req.body.taskFlags, req.body.taskDeadline));\\\\\\\
     }
 });
 

@@ -15,11 +15,6 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    $.get('/t1', (data)=>{
-        if(data==='2'){
-            window.location.replace('/');
-        }
-    });
     function logout(){
         $.get('/ylist/logout', (data)=>{
             if(data == 1){
@@ -27,6 +22,11 @@
             }
         })
     }
+    $.get('/t1', (data)=>{
+        if(data==='2'){
+            window.location.replace('/');
+        }
+    });
     function readAllTasks(){
         $.get('/ylist/read', (data) => {
             $('head').after(`<header><input id="loBut" type="button" value="Log-out" onclick="logout()"><p id="greet">   Hello, ${data.user.userName}</p></header>`);
@@ -63,7 +63,6 @@
             }
         });
     });
-
     function delTask(num) {
         $.post( '/ylist/delete', {taskId:num}, (data)=>{
             if(data){
@@ -83,12 +82,7 @@
     }
     function updateLineNums(){
         $('#taskContainer').children().each( (idx ,item) =>{
-
-            item.id = `line_${idx}`;
-            $(item).children('.taskId').replaceWith(`<div class="taskPart taskId">${idx}</div>`);
-            $(item).children('.taskBut').children('.editBut').attr('onclick', `editTask(${idx})`);
-            console.log($(item));
-
+            console.log(this)
         });
     }
     function submitEdit(val){
