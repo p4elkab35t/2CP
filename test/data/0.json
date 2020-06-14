@@ -1,0 +1,11 @@
+{
+ "idMax": 1,
+ "tasks": [
+  {
+   "taskId": "example0",
+   "taskText": "example0",
+   "taskDate": "exampleDate0",
+   "taskDeadline": ""
+  }
+ ]
+}
