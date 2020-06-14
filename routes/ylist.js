@@ -6,13 +6,14 @@ const express       = require('express'),
       path          = require('path');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    if(dataFunc.searchForCookie(req.cookies['auth0'])){
+    if(req.cookies['auth0']){
         res.sendFile(path.resolve('public/ylist.html'));
     }
     else{
         res.redirect('/');
     }
 });
+
 
 router.get('/logout', (req, res)=>{
     console.log(req.cookies['auth0']);
@@ -25,10 +26,6 @@ router.get('/logout', (req, res)=>{
     }
 });
 
-
-        res.send(dataFunc.sessionDelete(userName.userName));
-    }
-});
 
 router.get('/read', function (req, res) {
     let userName = dataFunc.searchForCookie(req.cookies['auth0']);
@@ -54,7 +51,7 @@ router.post('/delete', function (req, res) {
 router.post('/update', function (req, res) {
     let userName = dataFunc.searchForCookie(req.cookies['auth0']);
     if(userName){
-        res.send(dataFunc.editTask(userName.userId, req.body.taskId, req.body.taskText, req.body.taskFlags, req.body.taskDeadline));
+        res.send(dataFunc.editTask(userName.userId, req.body.taskId, req.body.taskText, req.body.taskFlags, req.body.taskDeadline));\\\\\\\
     }
 });
 
