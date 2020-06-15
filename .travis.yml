@@ -1,0 +1,20 @@
+language: node_js
+node_js: "12"
+dist: bionic
+
+before_install:
+  - npm i -g npm@version-number
+install:
+  - npm install
+script:
+  - npm start
+after_script: "echo 'Scrip is run'"
+deploy:
+  skip_cleanup: true
+  provider: heroku
+  api_key: ...
+  app: secondcourse-project
+  strategy: git
+  on:
+    branch: release
+after_success: "echo 'Build succeed'"
