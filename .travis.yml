@@ -1,11 +1,11 @@
 language: node_js
 node_js: "stable"
 dist: bionic
-
+env: port = 3000
 install:
   - npm install
 script:
-  - sudo npm start
+  - npm start
 after_script: "echo 'Scrip is run'"
 deploy:
   skip_cleanup: true
