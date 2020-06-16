@@ -36,7 +36,6 @@ router.post('/signin',urlencodedParser, (req,res,next)=>{
         res.cookie('auth0', sesskey,{httpOnly: true});
         dataFunc.sessionAdd(req.body.login, sesskey);
         res.send('1');
-        res.sendStatus(200);
       }
       else{
         res.sendStatus(403)
