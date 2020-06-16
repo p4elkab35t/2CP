@@ -1,19 +1,19 @@
 language: node_js
-node_js: "stable"
+node_js: stable
 os: linux
 dist: bionic
 install:
-  - npm install
+- npm install
 script:
-  - npm run test
-after_script: "echo 'Script is run'"
+- npm run test
+after_script: echo 'Script is run'
 deploy:
   cleanup: false
   provider: heroku
   api_key:
-    secure: Z1oQ0rpqJ5IZjOTccytOPSTPD3HPvFGauyeAQ8gHQqy1gLepG3mulmcaLS+gKhjS9oGDKXHIoTNEj52/uPwIXEYA1af9vcDInyz5JA0hzeSyA1ZsI/ZgHTrMbnEyWN3FrC5rXQsmNGVm754YMmqvWSsGJgvCrzhv1UUqwoUmTINOlKJL+0Pw8+RIY7D9VZT2QEaYqNWNcKDfonJt1ar2qx9xve0gQnwsa2/ned0DXxID2hO7CzP0UQLYWlmP0P4lAeDiAsgOZQw8AJJur6wZhYIS2S9bPtWWP2ru3mysCTjpsoCyQJCXKGc93q/1ugIOxFdGO0ZBuNuG4S8TTMSLTzxOR8/tF0CJP+bXuQ29A/whOnASjM6xpF1jRA6AIW9CpQQJYUMt4Im67uYPoreGJAWTIPPkRD33SOiyXPxrdxTUxJ3HDshLnHKUWD0PFScqae0NDAS1ERtP/EKq2pjeadeysB8mIlKOIkVQ/Wz6q9NyCcC1G2PUKFRr6fQCwM0MYOWsK2s7WFXuMXSWqz1Mn+Edf2cm8F4isI0ePbihT+4Ffh+sBpsrZxAbpd7TPWNPWIfIVXI7v6ZjbTw2bW8NUFEWhFtWggnILPJfJP24GlWabt6R6MACpkzriukBtvNykmQX3thSyQNMLjm1SPKlSvPiPFXFU5vd8gimB3P72rI=
+    secure: UgmvMFESTSljChdM2rbABuXo5/cRb9r1spTJWcgAeT8M/83lgg98pfaFCS7ShyIHtgiLBSBjhx6vV5oUXXY+tYA4MCnk34lTNyqra2ELSeqGqiM705d5cvCGKvbLDv9J8mz9w9iCC5orrMKBOMjgXERilclAWSl51g6QG7uVGUXMKYiL6VB5AqOMCpVVnmWv1Ud5y4y5QeS099/FCRpsJ/pw2cyGyRWCBayBCwR3Z7E76HFjWTFLj+ZahLxhItcTF5BCKc3Z20Yl3Ez4C9oH8tKavmZu7YkDQQoPwpz48QFo2A44AAxbd0mQtcFd2PspjJvCKmii7DfkuQXjO9YxpiCjzAiv/KsZnMoo0A+QEk3eJlQbkoIpczOAxKeG7DLDkQF+WgaM0dVcOHCK+7KKg2ALGai/U81xQMRvTQ8P0Qnrvd+bjeouoem7ZOgzwhFey8BzL7S1fMRxxnbLrEX4qPBiAVHvtnKPFBrB0IqY/YoJy/L7/qkWzTRX1KJzbOEvHe+ok94lQFSuhOkdb25OErlH6Y8AKyqubq5NWHavpe6F4geESwOrug9yv2b6E8Ifxga1fdb+Kc3JwAjXFIDQjdXnQdy86s9QIKqr1xnywteqUjgxhKSED1YbI+O944y7i729x6Hn8CmeNEIIcFU6ZmRao+4NCPOFyhDmZ0AdYb0=
   app: secondcourse-project
   strategy: git
   on:
-    branch: release
+    branch: master
 after_success: echo 'Build succeed'
