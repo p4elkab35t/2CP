@@ -1,12 +1,6 @@
 language: node_js
 node_js: "stable"
 dist: bionic
-env: port = 3000
-install:
-  - npm install
-script:
-  - npm start
-after_script: "echo 'Script is run'"
 deploy:
   cleanup: false
   provider: heroku
