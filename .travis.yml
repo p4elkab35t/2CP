@@ -1,6 +1,15 @@
 language: node_js
 node_js: "stable"
+os: linux
 dist: bionic
+install:
+  - npm install
+script:
+  - cd test
+  - node test.server.js
+  - cd ../
+  - npm run unit-tests
+after_script: "echo 'Script is run'"
 deploy:
   cleanup: false
   provider: heroku
