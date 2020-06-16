@@ -5,10 +5,7 @@ dist: bionic
 install:
   - npm install
 script:
-  - cd test
-  - node test.server.js
-  - cd ../
-  - npm run unit-tests
+  - npm run test
 after_script: "echo 'Script is run'"
 deploy:
   cleanup: false
