@@ -6,7 +6,7 @@ install:
 - npm install
 script:
 - npm run test
-after_script: echo 'Script is run'
+after_script: echo 'Test done'
 deploy:
   cleanup: false
   provider: heroku

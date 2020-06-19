@@ -1,7 +1,6 @@
 const   express           = require('express'),
         path              = require('path'),
         cookieParser      = require('cookie-parser'),
-
         logger            = require('morgan'),
         indexRouter       = require('./routes/index'),
         listRouter        = require('./routes/ylist'),
