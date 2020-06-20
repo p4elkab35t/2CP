@@ -5,7 +5,6 @@
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
-<body>
 <div id="main">
     <form action="/ylist/create" id="newTaskForm">
         <input type="text" id="newTaskText">
@@ -13,6 +12,7 @@
     </form>
     <div id="taskContainer"></div>
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $.get('/t1', (data)=>{
@@ -129,5 +129,8 @@
         }
     };
 </script>
+<footer>
+    <a href="/jsdoc/index.html">DOCUMENTATION</a>
+</footer>
 </body>
 </html>

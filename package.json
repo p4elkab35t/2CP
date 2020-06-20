@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "devStart": "cd test && node ./test.server.js && cd ../",
     "unit-tests": "mocha ./test/*.test.js",
-    "test": "start-server-and-test devStart http://127.0.0.1:5375 unit-tests"
+    "test": "start-server-and-test devStart http://127.0.0.1:5375 unit-tests",
+    "doc": "(jsdoc ./data/dataFunc.js -c conf.json) && (swagger-jsdoc -d ./swagger.conf.js ./routes/*.js)"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -16,9 +17,12 @@
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "express-session": "^1.17.1",
+    "ink-docstrap": "^1.3.2",
+    "jsdoc": "^3.6.4",
     "morgan": "~1.9.1",
     "path": "^0.12.7",
-    "redis": "^3.0.2"
+    "redis": "^3.0.2",
+    "swagger-jsdoc": "^4.0.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",

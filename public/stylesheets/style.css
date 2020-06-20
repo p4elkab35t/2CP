@@ -2,7 +2,7 @@ body {
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #ff9f43;
-
+  padding-bottom: 50px;
 }
 header{
   position: relative;
@@ -193,3 +193,13 @@ button:focus{
   margin-left:19px;
   margin-bottom: 0px;
 }
+footer{
+  background-color: #576574;
+  text-align: center;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  height: 50px;
+  width:100%;
+ }
