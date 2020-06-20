@@ -10,7 +10,12 @@
       "get" : {
         "description" : "Check for auth token",
         "produces" : [ "html/text" ],
-        "parameters" : null,
+        "parameters" : [ {
+          "name" : "cookie-session",
+          "description" : "Auth token",
+          "in" : "header",
+          "type" : "string"
+        } ],
         "responses" : {
           "200" : {
             "description" : "auth ok"
@@ -78,15 +83,13 @@
     },
     "/ylist" : {
       "get" : {
-        "description" : "Login to the application",
-        "parameters" : {
-          "parameters" : [ {
-            "name" : "cookie-session",
-            "description" : "Auth token",
-            "in" : "header",
-            "type" : "string"
-          } ]
-        },
+        "description" : "Enter to the application",
+        "parameters" : [ {
+          "name" : "cookie-session",
+          "description" : "Auth token",
+          "in" : "header",
+          "type" : "string"
+        } ],
         "produces" : [ "html/text" ],
         "responses" : {
           "200" : {
