@@ -93,17 +93,15 @@
     },
     "/ylist": {
       "get": {
-        "description": "Login to the application",
-        "parameters": {
-          "parameters": [
-            {
-              "name": "cookie-session",
-              "description": "Auth token",
-              "in": "header",
-              "type": "string"
-            }
-          ]
-        },
+        "description": "Enter to the application",
+        "parameters": [
+          {
+            "name": "cookie-session",
+            "description": "Auth token",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "produces": [
           "html/text"
         ],

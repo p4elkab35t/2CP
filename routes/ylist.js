@@ -9,9 +9,8 @@ const express       = require('express'),
  *
  * /ylist:
  *   get:
- *     description: Login to the application
+ *     description: Enter to the application
  *     parameters:
- *       parameters:
  *       - name: cookie-session
  *         description: Auth token
  *         in: header
