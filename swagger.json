@@ -1,24 +1,29 @@
 {
-  "info" : {
-    "title" : "TO-DO LIST API",
-    "version" : "3.0.0",
-    "description" : "API for auth and to-do list interactions"
+
+  "info": {
+    "title": "TO-DO LIST API",
+    "version": "3.0.0",
+    "description": "API for auth and to-do list interactions"
   },
-  "swagger" : "2.0",
-  "paths" : {
-    "/t1" : {
-      "get" : {
-        "description" : "Check for auth token",
-        "produces" : [ "html/text" ],
-        "parameters" : [ {
-          "name" : "cookie-session",
-          "description" : "Auth token",
-          "in" : "header",
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "auth ok"
+  "swagger": "2.0",
+  "paths": {
+    "/t1": {
+      "get": {
+        "description": "Check for auth token",
+        "produces": [
+          "html/text"
+        ],
+        "parameters": [
+          {
+            "name": "cookie-session",
+            "description": "Auth token",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "auth ok"
           }
         }
       }
@@ -48,6 +53,7 @@
           },
           "409" : {
             "description" : "duplicate name sign up failed"
+
           }
         }
       }
