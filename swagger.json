@@ -1,0 +1,215 @@
+{
+  "info" : {
+    "title" : "TO-DO LIST API",
+    "version" : "3.0.0",
+    "description" : "API for auth and to-do list interactions"
+  },
+  "swagger" : "2.0",
+  "paths" : {
+    "/t1" : {
+      "get" : {
+        "description" : "Check for auth token",
+        "produces" : [ "html/text" ],
+        "parameters" : null,
+        "responses" : {
+          "200" : {
+            "description" : "auth ok"
+          }
+        }
+      }
+    },
+    "/signup" : {
+      "post" : {
+        "description" : "Sign up to the application",
+        "parameters" : [ {
+          "name" : "username",
+          "description" : "Username to use for login.",
+          "in" : "formData",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "description" : "User's password.",
+          "in" : "formData",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "sign up ok"
+          },
+          "400" : {
+            "description" : "name and password are empty sign up failed"
+          },
+          "409" : {
+            "description" : "duplicate name sign up failed"
+          }
+        }
+      }
+    },
+    "/signin" : {
+      "post" : {
+        "description" : "Login to the application",
+        "parameters" : [ {
+          "name" : "username",
+          "description" : "Username to use for login.",
+          "in" : "formData",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "description" : "User's password.",
+          "in" : "formData",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "login is ok"
+          },
+          "400" : {
+            "description" : "login and password are empty"
+          },
+          "403" : {
+            "description" : "login is failed"
+          }
+        }
+      }
+    },
+    "/ylist" : {
+      "get" : {
+        "description" : "Login to the application",
+        "parameters" : {
+          "parameters" : [ {
+            "name" : "cookie-session",
+            "description" : "Auth token",
+            "in" : "header",
+            "type" : "string"
+          } ]
+        },
+        "produces" : [ "html/text" ],
+        "responses" : {
+          "200" : {
+            "description" : "data got"
+          },
+          "302" : {
+            "description" : "redirect, cuz no auth token"
+          }
+        }
+      }
+    },
+    "/ylist/logout" : {
+      "get" : {
+        "description" : "Logout from the application",
+        "parameters" : [ {
+          "name" : "cookie-session",
+          "description" : "Auth token",
+          "in" : "header",
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "logout successful"
+          }
+        }
+      }
+    },
+    "/ylist/read" : {
+      "post" : {
+        "description" : "Login to the application",
+        "produces" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "cookie-session",
+          "description" : "Auth token",
+          "in" : "header",
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "tasks read and sent to client"
+          }
+        }
+      }
+    },
+    "/ylist/create" : {
+      "post" : {
+        "description" : "Create task",
+        "produces" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "cookie-session",
+          "description" : "Auth token",
+          "in" : "header",
+          "type" : "string"
+        }, {
+          "name" : "task data",
+          "description" : "data of new task",
+          "in" : "formData",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "task created"
+          }
+        }
+      }
+    },
+    "/ylist/delete" : {
+      "post" : {
+        "description" : "Delete task by id",
+        "produces" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "cookie-session",
+          "description" : "Auth token",
+          "in" : "header",
+          "type" : "string"
+        }, {
+          "name" : "task id",
+          "description" : "If of the task to delete",
+          "in" : "formData",
+          "required" : true,
+          "type" : "number"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "task deleted"
+          }
+        }
+      }
+    },
+    "/ylist/update" : {
+      "post" : {
+        "description" : "Edit task",
+        "produces" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "cookie-session",
+          "description" : "Auth token",
+          "in" : "header",
+          "type" : "string"
+        }, {
+          "name" : "Task Id",
+          "description" : "Id of the task.",
+          "in" : "formData",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "Task data",
+          "description" : "Data of edited task.",
+          "in" : "formData",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "task updated"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : { },
+  "responses" : { },
+  "parameters" : { },
+  "securityDefinitions" : { },
+  "tags" : [ ]
+}
