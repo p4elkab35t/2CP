@@ -56,7 +56,6 @@ describe('Auth methods', ()=>{
                 .end(function(error, res, body) {
                     expect(res).to.have.status(200);
                     done();
-                   // expect(res).to.have.cookie('auth0');
                 });
         });
         it('it shouldn\'t signin if password or login are incorrect', (done)=>{
