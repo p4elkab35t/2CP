@@ -38,8 +38,11 @@ To run project type `npm start` and press `Enter`.
 To run unit tests type `npm run test` and press `Enter`.  
   
 ---
-###Documentation
 
-###Documentation for functions is [here](https://secondcourse-project.herokuapp.com/jsdoc/index.html).
+  
+### Documentation    
 
-###Server API is [here](https://secondcourse-project.herokuapp.com/API/index.html).
+Documentation for functions is [here](https://secondcourse-project.herokuapp.com/jsdoc/index.html).  
+
+Server API is [here](https://secondcourse-project.herokuapp.com/API/index.html).  
+
