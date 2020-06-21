@@ -5,7 +5,7 @@ dist: bionic
 install:
 - npm install
 script:
-- test-cov
+- npm run test-cov
 after_script: echo test succed
 deploy:
   cleanup: false
