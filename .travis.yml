@@ -16,4 +16,6 @@ deploy:
   strategy: git
   on:
     branch: release
-after_success: echo "done"
+after_success:
+- npm run coverage
+- npm run coveralls

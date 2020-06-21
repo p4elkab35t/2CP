@@ -7,9 +7,11 @@
     "devStart": "cd test && node ./test.server.js && cd ../",
     "unit-tests": "",
     "test": "start-server-and-test devStart http://127.0.0.1:5375 unit-tests",
-    "unit-tests-cov": "nyc mocha ./test/*.test.js report --reporter=text-lcov | coveralls",
+    "unit-tests-cov": "nyc mocha ./test/*.test.js",
     "test-cov": "start-server-and-test devStart http://127.0.0.1:5375 unit-tests-cov",
-    "doc": "(jsdoc ./data/dataFunc.js -c conf.json) && (swagger-jsdoc -d ./swagger.conf.js ./routes/*.js)"
+    "doc": "(jsdoc ./data/dataFunc.js -c conf.json) && (swagger-jsdoc -d ./swagger.conf.js ./routes/*.js)",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "coverage": "nyc report --reporter=text-lcov | coveralls && nyc report --reporter=lcov"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
