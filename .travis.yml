@@ -6,7 +6,7 @@ install:
 - npm install
 script:
 - npm run test
-after_script: echo 'Test done'
+after_script: NODE_ENV=test istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
 deploy:
   cleanup: false
   provider: heroku
@@ -16,4 +16,4 @@ deploy:
   strategy: git
   on:
     branch: release
-after_success: echo 'Build succeed'
+after_success: echo "done"
