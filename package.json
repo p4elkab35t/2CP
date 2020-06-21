@@ -7,7 +7,7 @@
     "devStart": "cd test && node ./test.server.js && cd ../",
     "unit-tests": "mocha ./test/*.test.js",
     "test": "start-server-and-test devStart http://127.0.0.1:5375 unit-tests",
-    "doc": "(jsdoc ./data/dataFunc.js -c conf.json) && (swagger-jsdoc -d ./swagger.conf.js ./routes/*.js)",
+    "doc": "(jsdoc ./data/dataFunc.js -c conf.json) && (swagger-jsdoc -d ./swagger.conf.js ./routes/*.js)"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
