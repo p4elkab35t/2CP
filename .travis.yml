@@ -5,8 +5,8 @@ dist: bionic
 install:
 - npm install
 script:
-- npm run test
-after_script: echo 'Test done'
+- npm run test-cov
+after_script: echo test succed
 deploy:
   cleanup: false
   provider: heroku
@@ -16,4 +16,6 @@ deploy:
   strategy: git
   on:
     branch: release
-after_success: echo 'Build succeed'
+after_success:
+- npm run coverage
+- npm run coveralls

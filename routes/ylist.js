@@ -48,8 +48,6 @@ router.get('/', function(req, res, next) {
  *         description: logout successful
  */
 router.get('/logout', (req, res)=>{
-    console.log(req.cookies['auth0']);
-    console.log(dataFunc.searchForCookie(req.cookies['auth0']));
     let userName = dataFunc.searchForCookie(req.cookies['auth0']);
     if(userName){
         res.cookie('auth0', 0,{httpOnly: true});
@@ -77,7 +75,6 @@ router.get('/logout', (req, res)=>{
 router.get('/read', function (req, res) {
     let userName = dataFunc.searchForCookie(req.cookies['auth0']);
     if(userName){
-        console.log({data: dataFunc.getTasksData(userName.userId), user: userName});
         res.send({data: dataFunc.getTasksData(userName.userId), user: userName});
     }
 });

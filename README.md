@@ -1,4 +1,4 @@
-# 2CP - 2nd course project [![Build Status](https://travis-ci.com/PavelKiller/2CP.svg?branch=release)](https://travis-ci.com/PavelKiller/2CP)
+# 2CP - 2nd course project [![Build Status](https://travis-ci.com/PavelKiller/2CP.svg?branch=release)](https://travis-ci.com/PavelKiller/2CP) [![Coverage Status](https://coveralls.io/repos/github/PavelKiller/2CP/badge.svg?branch=master)](https://coveralls.io/github/PavelKiller/2CP?branch=master)
 ### Project for 2nd course.  
 Simple to-do list web-application. Run on [Heroku](https://secondcourse-project.herokuapp.com/).  
 
@@ -38,6 +38,11 @@ To run project type `npm start` and press `Enter`.
 To run unit tests type `npm run test` and press `Enter`.  
   
 ---
-###Documentation
-#####Documentation for functions is [here](https://secondcourse-project.herokuapp.com/jsdoc/index.html).
-#####Server API is [here](https://secondcourse-project.herokuapp.com/API/index.html).
+
+  
+### Documentation    
+
+Documentation for functions is [here](https://secondcourse-project.herokuapp.com/jsdoc/index.html).  
+
+Server API is [here](https://secondcourse-project.herokuapp.com/API/index.html).  
+
